@@ -1,2 +1,2 @@
-# demo
-This is my first Repository
+# Case Study
+Water Jug Problem
