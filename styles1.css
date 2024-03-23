@@ -1,0 +1,49 @@
+.jug {
+	width: 100px;
+	height: 200px;
+	border: 1px solid black;
+	float: left;
+	margin-right: 10px;
+}
+
+#jug1 {
+	background-color: #4AC6D2;
+	border: 10%;
+	border-bottom-left-radius: 20%;
+	border-bottom-right-radius: 20%;
+}
+
+#jug2 {
+	background-color: #9E15BF;
+	border-bottom-left-radius: 20%;
+	border-bottom-right-radius: 20%;
+}
+
+button {
+	display: block;
+	margin-bottom: 10px;
+	display: inline-block;
+    padding: 10px 20px;
+    background-color: #E40C2B;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#steps {
+	clear: both;
+	margin-top: 20px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}

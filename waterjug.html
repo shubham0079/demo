@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  color:  #F7F4E9;
+  padding: 0;
+  background-color: black;
+}
+
+header {
+  background-color: hsl(82, 100%, 50%);
+  color: black;
+  font-size: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #1D1D2C;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: hsl(82, 100%, 50%);
+  color: black;
+}
+
+button{
+  display: inline-block;
+    padding: 10px 20px;
+    background-color: #E40C2B;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+label{
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+}
+
+  </style>
+  <title>Water Jug Problem</title>
+</head>
+<body>
+
+  <header>
+    <h1>Water Jug Problem</h1>
+  </header>
+
+  <main>
+        <div id="jug-container">
+            <div  id="jugA">
+                <div class="water" id="waterA"></div>
+            </div>
+            <div  id="jugB">
+                <div class="water" id="waterB"></div>
+            </div>
+        </div>
+<br><br>
+        <label for="amount">Amount to Measure:</label>
+        <input type="number" id="amount" placeholder="Enter amount">
+        <button onclick="measureWater()">Measure Water</button>
+
+        <p id="result"></p>
+    </main>
+
+<script>
+    const jugA = document.getElementById('jugA');
+    const jugB = document.getElementById('jugB');
+    const waterA = document.getElementById('waterA');
+    const waterB = document.getElementById('waterB');
+    const amountInput = document.getElementById('amount');
+    const resultText = document.getElementById('result');
+
+    function measureWater() {
+        const targetAmount = parseInt(amountInput.value);
+
+        if (isNaN(targetAmount) || targetAmount <= 0) {
+            resultText.textContent = 'Please enter a valid amount.';
+            return;
+        }
+
+        resultText.textContent = ''; // Clear previous result
+
+        let jugAValue = 0;
+        let jugBValue = 0;
+
+        while (jugAValue !== targetAmount && jugBValue !== targetAmount) {
+            // Fill jug B if it's empty
+            if (jugBValue === 0) {
+                jugBValue = 5;
+                updateWaterVisual(jugB, jugBValue);
+                logStep(`Fill Jug B (5L)  ||  `);
+            }
+
+            // Pour water from jug B to jug A
+            const pourAmount = Math.min(jugBValue, 3 - jugAValue);
+            jugAValue += pourAmount;
+            jugBValue -= pourAmount;
+            updateWaterVisual(jugA, jugAValue);
+            updateWaterVisual(jugB, jugBValue);
+            logStep(`Pour ${pourAmount}L from Jug B to Jug A   ||  `);
+
+            // Empty jug A if it's full
+            if (jugAValue === 3) {
+                jugAValue = 0;
+                updateWaterVisual(jugA, jugAValue);
+                logStep(`Empty Jug A (3L)  ||  `);
+            }
+        }
+
+        logStep(`Measured ${targetAmount}L of water successfully!`);
+    }
+
+    function updateWaterVisual(jug, value) {
+        const waterElement = jug.querySelector('.water');
+        waterElement.style.height = `${(value / 3) * 100}%`;
+    }
+
+    function logStep(step) {
+        resultText.textContent += `${step}\n`;
+    }
+</script>
+</body>
+</html>

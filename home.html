@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  color:  #F7F4E9;
+  padding: 0;
+  font-size: 16px;
+  background-color: black;
+}
+
+header {
+  background-color: hsl(82, 100%, 50%);
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  padding: 5px;
+}
+
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #1D1D2C;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: hsl(82, 100%, 50%);
+  color: black;
+}
+
+a{
+  display: inline-block;
+    padding: 10px 20px;
+    background-color: #E40C2B;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+div{
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  font-size: 16px;
+  background-color: #4A2C40;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  
+}
+  </style>
+  <title>Water Jug Problem</title>
+</head>
+<body>
+
+  <header>
+    <h1>Water Jug Problem</h1>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>Information</h1>
+      <p>
+        The Water Jug Problem is a classic puzzle where you are given two jugs, one of capacity X liters and the other of capacity Y liters. The objective is to measure exactly Z liters of water using these two jugs.
+      </p>
+    </section>
+
+    <section class="content">
+      <h1>Steps to Solve :-</h1>
+   
+    </section>
+    <ol>
+      <li>Fill one of the jugs completely.</li>
+      <li>Pour the water from the full jug into the other jug until the second jug is full or the first jug is empty.</li>
+      <li>If the second jug is not full yet, repeat step 2.</li>
+      <li>If the second jug is full, but there is still remaining water in the first jug, empty the second jug.</li>
+      <li>Repeat steps 1-4 until you measure exactly <em>Z</em> liters of water.</li>
+  </ol>
+    <section class="content">
+      <div>
+      <h1>Algorithm :-</h1>
+        <pre>
+          1. Fill jug A.
+          2. While jug B is not full:
+              a. Pour as much water as possible from jug A to jug B.
+              b. If jug A is empty, fill it.
+              c. If jug B is full, empty it.
+          3. Repeat steps 2 until the desired amount is reached in jug B.
+        </pre>
+      </div>
+   
+    </section>
+
+    <a href="waterjug.html" target="_blank">Steps</a><span></span>
+    <a href="waterjug1.html" target="_blank">Demonstration</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Case Study</p>
+  </footer>
+
+</body>
+</html>
